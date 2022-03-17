@@ -18,7 +18,7 @@ void Task1Code(void* pvParameters){
     getSensorReadings();
 
     // send data to ground station
-    // serveData();
+    serveData();
   
     // print Sensor values for debugging
     printToSerial();

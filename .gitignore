@@ -9,6 +9,8 @@ cmake-build-esp32doit-devkit-v1/
 CMakeLists.txt
 CMakeListsPrivate.txt
 
+arduino.json
+
 
 
 

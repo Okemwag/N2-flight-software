@@ -1,19 +1,25 @@
+#include "defs.h";
 #ifndef GLOBALVARIABLES_H
+
 #define GLOBALVARIABLES_H
 
+/*
+ * =================== STATE VARIABLES ====================
+ */
 
 
+int currentState = PRELAUNCH_STATE;
 
 /*
-* =================== POSITION VARIABLES ====================
-*/
+ * =================== POSITION VARIABLES ====================
+ */
 float altitude, velocity, acceleration, ax, ay, az, kalmanAltitude;
 float s, v, a;
-
+float longitude, latitude;
 
 /*
-* =================== KALMAN MATRIXES ====================
-*/
+ * =================== KALMAN MATRIXES ====================
+ */
 
 float q = 0.0013;
 
@@ -51,13 +57,13 @@ BLA::Matrix<3, 1> x_hat = {1500.0,
 
 BLA::Matrix<2, 1> Y = {0.0,
                        0.0};
-  
-/*
-* Wi-Fi connection variables
-*/
 
-static const char* ssid = "ground-station"; // change to credentials of the ground station WiFi
-static const char* key = "password";
+/*
+ * Wi-Fi connection variables
+ */
+
+static const char *ssid = "ground-station"; // change to credentials of the ground station WiFi
+static const char *key = "password";
 
 String sensor_data; // convert char to string
 String data_message;
@@ -66,25 +72,25 @@ String data_message;
 unsigned long previousMillis = 0;
 const long interval = 2000;
 
-
 AsyncWebServer server(80);
 
-
 /*
-* liftoff detection variables
-*/
+ * liftoff detection variables
+ */
 bool is_lift_off = false;
 uint previous_altitude;
 uint current_altitude;
 
 /*
-* apogee detection variables
-*/
+ * apogee detection variables
+ */
 bool is_apogee = false;
 
 // circular buffer creation
 CircularBuffer<float, 5> altitude_buffer;
 
 unsigned long tm;
+
+
 
 #endif
